@@ -1,0 +1,26 @@
+unit dmDados;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, REST.Backend.EMSProvider;
+
+type
+  TDataModule1 = class(TDataModule)
+    EMSProvider1: TEMSProvider;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

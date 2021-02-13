@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/08/28 23:18:55.000.559,=C:\Users\Igor\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/11/08 22:13:14.000.353,=C:\Users\Igor\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/12/01 23:13:09.000.693,=C:\Users\Igor\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/02/01 18:57:43.000.022,=emsserverapi.dcp</Transaction>
+    <Transaction>2021/02/01 18:57:43.000.737,=C:\Users\Igor\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/02/02 22:15:08.000.221,=C:\Users\Igor\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/02/13 11:32:07.000.846,=FireDACCommon.dcp</Transaction>
+    <Transaction>2021/02/13 11:32:07.000.868,=FireDAC.dcp</Transaction>
+    <Transaction>2021/02/13 11:32:07.000.800,=emsserverresource.dcp</Transaction>
+    <Transaction>2021/02/13 11:32:07.000.784,=dbrtl.dcp</Transaction>
+    <Transaction>2021/02/13 11:32:07.000.816,=FireDACCommonDriver.dcp</Transaction>
+    <Transaction>2021/02/13 11:32:07.000.754,=emsserverapi.dcp</Transaction>
+    <Transaction>2021/02/13 11:32:08.000.017,=C:\Users\Igor\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/02/13 11:40:42.410,=emsserverapi.dcp</Transaction>
+    <Transaction>2021/02/13 11:40:42.432,=dbrtl.dcp</Transaction>
+    <Transaction>2021/02/13 11:40:42.472,=emsserverresource.dcp</Transaction>
+    <Transaction>2021/02/13 11:40:42.503,=FireDACCommonDriver.dcp</Transaction>
+    <Transaction>2021/02/13 11:40:42.536,=FireDACCommon.dcp</Transaction>
+    <Transaction>2021/02/13 11:40:42.555,=FireDAC.dcp</Transaction>
+    <Transaction>2021/02/13 11:40:42.572,=FireDACIBDriver.dcp</Transaction>
+    <Transaction>2021/02/13 11:40:43.246,=C:\Users\Igor\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/02/13 11:41:36.666,C:\Users\Igor\Desktop\Pos\Sistema Distribuido\ProjetoFinal\RestClient\Server\uServer.dfm=C:\Users\Igor\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2021/02/13 11:41:36.666,C:\Users\Igor\Desktop\Pos\Sistema Distribuido\ProjetoFinal\RestClient\Server\uServer.pas=C:\Users\Igor\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/02/13 11:42:13.582,C:\Users\Igor\Desktop\Pos\Sistema Distribuido\ProjetoFinal\RestClient\Server\Server.dproj=C:\Users\Igor\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

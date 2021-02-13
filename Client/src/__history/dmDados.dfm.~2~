@@ -1,0 +1,12 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 426
+  Width = 741
+  object EMSProvider1: TEMSProvider
+    ApiVersion = '2'
+    URLHost = 'localhost:8080'
+    URLPort = 0
+    Left = 32
+    Top = 32
+  end
+end
