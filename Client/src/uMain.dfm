@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Principal'
-  ClientHeight = 451
-  ClientWidth = 770
+  ClientHeight = 525
+  ClientWidth = 832
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,46 +11,120 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
     Left = 0
-    Top = 241
-    Width = 770
+    Top = 313
+    Width = 832
     Height = 208
     Align = alTop
+    DataSource = Dados.DataSource1
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'CUST_NO'
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CUSTOMER'
+        Width = 130
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CONTACT_FIRST'
+        Width = 191
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CONTACT_LAST'
+        Width = 109
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PHONE_NO'
+        Width = 30
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ADDRESS_LINE1'
+        Width = 50
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ADDRESS_LINE2'
+        Width = 63
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CITY'
+        Width = 43
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'STATE_PROVINCE'
+        Width = 10
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'COUNTRY'
+        Width = 20
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'POSTAL_CODE'
+        Width = 10
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ON_HOLD'
+        Width = 50
+        Visible = True
+      end>
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 770
-    Height = 241
+    Width = 832
+    Height = 313
     Align = alTop
     TabOrder = 1
-    ExplicitTop = -6
     object Label1: TLabel
-      Left = 24
+      Left = 31
       Top = 48
-      Width = 31
+      Width = 55
       Height = 13
-      Caption = 'Nome:'
+      Caption = 'CUSTOMER'
     end
     object Label2: TLabel
-      Left = 24
-      Top = 16
-      Width = 37
+      Left = 36
+      Top = 20
+      Width = 47
       Height = 13
-      Caption = 'C'#243'digo:'
+      Caption = 'CUST_NO'
     end
     object btnEditar: TSpeedButton
-      Left = 125
-      Top = 208
+      Left = 109
+      Top = 277
       Width = 98
       Height = 30
       Caption = 'Editar'
@@ -113,8 +187,8 @@ object Form1: TForm1
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
     end
     object btnInserir: TSpeedButton
-      Left = 24
-      Top = 208
+      Left = 5
+      Top = 277
       Width = 98
       Height = 30
       Caption = 'Inserir'
@@ -175,42 +249,185 @@ object Form1: TForm1
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
         FFFFFFFFFFFFFFFFFFFF58A47158A47158A47158A47158A47158A47158A47158
         A471FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+      OnClick = btnInserirClick
     end
-    object edtCodigo: TEdit
-      Left = 64
-      Top = 8
+    object Label3: TLabel
+      Left = 3
+      Top = 75
+      Width = 83
+      Height = 13
+      Caption = 'CONTACT_FIRST'
+    end
+    object Label4: TLabel
+      Left = 406
+      Top = 75
+      Width = 78
+      Height = 13
+      Caption = 'CONTACT_LAST'
+    end
+    object Label5: TLabel
+      Left = 31
+      Top = 105
+      Width = 55
+      Height = 13
+      Caption = 'PHONE_NO'
+    end
+    object Label6: TLabel
+      Left = 5
+      Top = 132
+      Width = 80
+      Height = 13
+      Caption = 'ADDRESS_LINE1'
+    end
+    object Label7: TLabel
+      Left = 8
+      Top = 156
+      Width = 80
+      Height = 13
+      Caption = 'ADDRESS_LINE2'
+    end
+    object Label8: TLabel
+      Left = 65
+      Top = 186
+      Width = 23
+      Height = 13
+      Caption = 'CITY'
+    end
+    object Label9: TLabel
+      Left = 406
+      Top = 186
+      Width = 88
+      Height = 13
+      Caption = 'STATE_PROVINCE'
+    end
+    object Label10: TLabel
+      Left = 40
+      Top = 216
+      Width = 48
+      Height = 13
+      Caption = 'COUNTRY'
+    end
+    object Label11: TLabel
+      Left = 238
+      Top = 216
+      Width = 72
+      Height = 13
+      Caption = 'POSTAL_CODE'
+    end
+    object Label12: TLabel
+      Left = 446
+      Top = 216
+      Width = 48
+      Height = 13
+      Caption = 'ON_HOLD'
+    end
+    object edtID: TEdit
+      Left = 92
+      Top = 13
       Width = 65
       Height = 21
       TabOrder = 0
-      Text = 'edtCodigo'
     end
-    object edtNome: TEdit
-      Left = 64
+    object edtCustomer: TEdit
+      Left = 92
       Top = 40
-      Width = 332
+      Width = 645
       Height = 21
       TabOrder = 1
-      Text = 'Edit1'
     end
     object btnExcluir: TBitBtn
-      Left = 138
-      Top = 5
+      Left = 165
+      Top = 8
       Width = 75
       Height = 26
       Caption = 'Excluir'
       Kind = bkCancel
       NumGlyphs = 2
       TabOrder = 2
+      OnClick = btnExcluirClick
     end
     object btnAtualizar: TBitBtn
-      Left = 226
-      Top = 208
-      Width = 92
+      Left = 210
+      Top = 277
+      Width = 183
       Height = 30
-      Caption = 'Atualizar'
+      Caption = 'Atualizar (Refresh de dados)'
       Kind = bkRetry
       NumGlyphs = 2
       TabOrder = 3
+      OnClick = btnAtualizarClick
+    end
+    object edtCONTACT_FIRST: TEdit
+      Left = 92
+      Top = 67
+      Width = 288
+      Height = 21
+      TabOrder = 4
+    end
+    object edtCONTACT_LAST: TEdit
+      Left = 490
+      Top = 67
+      Width = 247
+      Height = 21
+      TabOrder = 5
+    end
+    object edtPHONE_NO: TEdit
+      Left = 92
+      Top = 97
+      Width = 109
+      Height = 21
+      TabOrder = 6
+    end
+    object edtADDRESS_LINE1: TEdit
+      Left = 92
+      Top = 124
+      Width = 645
+      Height = 21
+      TabOrder = 7
+    end
+    object edtADDRESS_LINE2: TEdit
+      Left = 92
+      Top = 151
+      Width = 646
+      Height = 21
+      TabOrder = 8
+    end
+    object edtCITY: TEdit
+      Left = 92
+      Top = 178
+      Width = 286
+      Height = 21
+      TabOrder = 9
+    end
+    object edtSTATE_PROVINCE: TEdit
+      Left = 500
+      Top = 178
+      Width = 237
+      Height = 21
+      TabOrder = 10
+    end
+    object edtCOUNTRY: TEdit
+      Left = 92
+      Top = 208
+      Width = 63
+      Height = 21
+      TabOrder = 11
+      Text = 'USA'
+    end
+    object edtPOSTAL_CODE: TEdit
+      Left = 316
+      Top = 208
+      Width = 63
+      Height = 21
+      TabOrder = 12
+    end
+    object edtON_HOLD: TEdit
+      Left = 500
+      Top = 208
+      Width = 63
+      Height = 21
+      TabOrder = 13
+      Text = '*'
     end
   end
 end

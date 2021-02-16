@@ -36,9 +36,13 @@ requires
   FireDACCommonDriver,
   FireDACCommon,
   FireDAC,
-  FireDACIBDriver;
+  FireDACIBDriver,
+  bindengine,
+  bindcomp,
+  RESTComponents;
 
 contains
-  uServer in 'uServer.pas' {RestCustumersResource1: TDataModule};
+  uServer in 'uServer.pas' {RestCustumersResource1: TDataModule},
+  uJSONHelper in '..\Shared\uJSONHelper.pas' {JSONDM: TDataModule};
 
 end.

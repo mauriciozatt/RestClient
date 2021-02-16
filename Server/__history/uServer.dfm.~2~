@@ -1,0 +1,55 @@
+object RestCustumersResource1: TRestCustumersResource1
+  OldCreateOrder = False
+  Height = 300
+  Width = 600
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=EMPLOYEE')
+    LoginPrompt = False
+    Left = 30
+    Top = 16
+  end
+  object qryCUSTOMER: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from CUSTOMER')
+    Left = 130
+    Top = 16
+  end
+  object dsrCUSTOMER: TEMSDataSetResource
+    AllowedActions = [List, Get, Post, Put, Delete]
+    DataSet = qryCUSTOMER
+    Left = 130
+    Top = 64
+  end
+  object vQryDeleteCustumer: TFDQuery
+    Connection = FDConnection1
+    UpdateOptions.AssignedValues = [uvAutoCommitUpdates]
+    SQL.Strings = (
+      'DELETE FROM CUSTOMER WHERE CUST_NO = :CUST_NO')
+    Left = 321
+    Top = 37
+    ParamData = <
+      item
+        Name = 'CUST_NO'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+  end
+  object vQryDeleteSales: TFDQuery
+    Connection = FDConnection1
+    UpdateOptions.AssignedValues = [uvAutoCommitUpdates]
+    SQL.Strings = (
+      'delete from sales where cust_no = :CUST_NO')
+    Left = 321
+    Top = 85
+    ParamData = <
+      item
+        Name = 'CUST_NO'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+  end
+end

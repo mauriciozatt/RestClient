@@ -108,7 +108,12 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\dmDados.pas">
-            <Form>DataModule1</Form>
+            <Form>Dados</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\Shared\uJSONHelper.pas">
+            <Form>JSONDM</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>

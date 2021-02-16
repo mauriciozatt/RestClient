@@ -1,0 +1,145 @@
+object RestCustumersResource1: TRestCustumersResource1
+  OldCreateOrder = False
+  Height = 300
+  Width = 600
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=EMPLOYEE')
+    LoginPrompt = False
+    Left = 30
+    Top = 16
+  end
+  object qryCUSTOMER: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from CUSTOMER')
+    Left = 130
+    Top = 16
+  end
+  object dsrCUSTOMER: TEMSDataSetResource
+    AllowedActions = [List, Get, Post, Put, Delete]
+    DataSet = qryCUSTOMER
+    Left = 130
+    Top = 64
+  end
+  object vQryDeleteCustumer: TFDQuery
+    Connection = FDConnection1
+    UpdateOptions.AssignedValues = [uvAutoCommitUpdates]
+    SQL.Strings = (
+      'DELETE FROM CUSTOMER WHERE CUST_NO = :CUST_NO')
+    Left = 497
+    Top = 29
+    ParamData = <
+      item
+        Name = 'CUST_NO'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+  end
+  object vQryDeleteSales: TFDQuery
+    Connection = FDConnection1
+    UpdateOptions.AssignedValues = [uvAutoCommitUpdates]
+    SQL.Strings = (
+      'delete from sales where cust_no = :CUST_NO')
+    Left = 497
+    Top = 77
+    ParamData = <
+      item
+        Name = 'CUST_NO'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+  end
+  object qryInserir: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      
+        'INSERT INTO CUSTOMER (CUST_NO,CUSTOMER,CONTACT_FIRST,CONTACT_LAS' +
+        'T,PHONE_NO,ADDRESS_LINE1,'
+      'ADDRESS_LINE2,CITY,STATE_PROVINCE,COUNTRY,POSTAL_CODE,ON_HOLD)'
+      
+        'VALUES (:CUST_NO,:CUSTOMER,:CONTACT_FIRST,:CONTACT_LAST,:PHONE_N' +
+        'O,:ADDRESS_LINE1,:ADDRESS_LINE2,'
+      ':CITY,:STATE_PROVINCE,:COUNTRY,:POSTAL_CODE,:ON_HOLD)'
+      ''
+      '')
+    Left = 234
+    Top = 16
+    ParamData = <
+      item
+        Name = 'CUST_NO'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end
+      item
+        Name = 'CUSTOMER'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 25
+        Value = Null
+      end
+      item
+        Name = 'CONTACT_FIRST'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 15
+      end
+      item
+        Name = 'CONTACT_LAST'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 20
+      end
+      item
+        Name = 'PHONE_NO'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 20
+      end
+      item
+        Name = 'ADDRESS_LINE1'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 30
+      end
+      item
+        Name = 'ADDRESS_LINE2'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 30
+      end
+      item
+        Name = 'CITY'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 25
+      end
+      item
+        Name = 'STATE_PROVINCE'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 15
+      end
+      item
+        Name = 'COUNTRY'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 15
+      end
+      item
+        Name = 'POSTAL_CODE'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 12
+      end
+      item
+        Name = 'ON_HOLD'
+        DataType = ftFixedChar
+        ParamType = ptInput
+        Size = 1
+      end>
+  end
+end
