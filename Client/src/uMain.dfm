@@ -185,6 +185,7 @@ object Form1: TForm1
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8F8F8FBFBFAFFFFFFFFFF
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+      OnClick = btnEditarClick
     end
     object btnInserir: TSpeedButton
       Left = 5
@@ -336,25 +337,25 @@ object Form1: TForm1
       TabOrder = 1
     end
     object btnExcluir: TBitBtn
-      Left = 165
+      Left = 163
       Top = 8
       Width = 75
       Height = 26
       Caption = 'Excluir'
       Kind = bkCancel
       NumGlyphs = 2
-      TabOrder = 2
+      TabOrder = 13
       OnClick = btnExcluirClick
     end
     object btnAtualizar: TBitBtn
-      Left = 210
+      Left = 213
       Top = 277
       Width = 183
       Height = 30
       Caption = 'Atualizar (Refresh de dados)'
       Kind = bkRetry
       NumGlyphs = 2
-      TabOrder = 3
+      TabOrder = 12
       OnClick = btnAtualizarClick
     end
     object edtCONTACT_FIRST: TEdit
@@ -362,56 +363,56 @@ object Form1: TForm1
       Top = 67
       Width = 288
       Height = 21
-      TabOrder = 4
+      TabOrder = 2
     end
     object edtCONTACT_LAST: TEdit
       Left = 490
       Top = 67
       Width = 247
       Height = 21
-      TabOrder = 5
+      TabOrder = 3
     end
     object edtPHONE_NO: TEdit
       Left = 92
       Top = 97
       Width = 109
       Height = 21
-      TabOrder = 6
+      TabOrder = 4
     end
     object edtADDRESS_LINE1: TEdit
       Left = 92
       Top = 124
       Width = 645
       Height = 21
-      TabOrder = 7
+      TabOrder = 5
     end
     object edtADDRESS_LINE2: TEdit
       Left = 92
       Top = 151
       Width = 646
       Height = 21
-      TabOrder = 8
+      TabOrder = 6
     end
     object edtCITY: TEdit
       Left = 92
       Top = 178
       Width = 286
       Height = 21
-      TabOrder = 9
+      TabOrder = 7
     end
     object edtSTATE_PROVINCE: TEdit
       Left = 500
       Top = 178
       Width = 237
       Height = 21
-      TabOrder = 10
+      TabOrder = 8
     end
     object edtCOUNTRY: TEdit
       Left = 92
       Top = 208
       Width = 63
       Height = 21
-      TabOrder = 11
+      TabOrder = 9
       Text = 'USA'
     end
     object edtPOSTAL_CODE: TEdit
@@ -419,14 +420,14 @@ object Form1: TForm1
       Top = 208
       Width = 63
       Height = 21
-      TabOrder = 12
+      TabOrder = 10
     end
     object edtON_HOLD: TEdit
       Left = 500
       Top = 208
       Width = 63
       Height = 21
-      TabOrder = 13
+      TabOrder = 11
       Text = '*'
     end
   end

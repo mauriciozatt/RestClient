@@ -63,7 +63,7 @@ object RestCustumersResource1: TRestCustumersResource1
       
         'values (:id, :nome, :contato1, :contato2, :fone, :ander1, :ender' +
         '2, :city, :state, :pais, :cod, :hold )')
-    Left = 234
+    Left = 306
     Top = 16
     ParamData = <
       item
@@ -137,6 +137,117 @@ object RestCustumersResource1: TRestCustumersResource1
         DataType = ftFixedChar
         ParamType = ptInput
         Size = 1
+      end>
+  end
+  object QryAtualizar: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'UPDATE CUSTOMER'
+      'SET '
+      'CUSTOMER = :CUSTOMER,'
+      'CONTACT_FIRST = :CONTACT_FIRST, '
+      'CONTACT_LAST = :CONTACT_LAST,'
+      'PHONE_NO = :PHONE_NO,'
+      'ADDRESS_LINE1 = :ADDRESS_LINE1,'
+      'ADDRESS_LINE2 = :ADDRESS_LINE2, '
+      'CITY = :CITY,'
+      'STATE_PROVINCE = :STATE_PROVINCE,'
+      'COUNTRY = :COUNTRY,'
+      'POSTAL_CODE = :POSTAL_CODE,'
+      'ON_HOLD = :ON_HOLD'
+      'WHERE CUST_NO = :CUST_NO'
+      ''
+      ''
+      '')
+    Left = 305
+    Top = 109
+    ParamData = <
+      item
+        Name = 'CUSTOMER'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 25
+        Value = Null
+      end
+      item
+        Name = 'CONTACT_FIRST'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 15
+      end
+      item
+        Name = 'CONTACT_LAST'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 20
+      end
+      item
+        Name = 'PHONE_NO'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 20
+      end
+      item
+        Name = 'ADDRESS_LINE1'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 30
+      end
+      item
+        Name = 'ADDRESS_LINE2'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 30
+      end
+      item
+        Name = 'CITY'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 25
+      end
+      item
+        Name = 'STATE_PROVINCE'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 15
+      end
+      item
+        Name = 'COUNTRY'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 15
+      end
+      item
+        Name = 'POSTAL_CODE'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 12
+      end
+      item
+        Name = 'ON_HOLD'
+        DataType = ftFixedChar
+        ParamType = ptInput
+        Size = 1
+      end
+      item
+        Name = 'CUST_NO'
+        DataType = ftInteger
+        ParamType = ptInput
+      end>
+  end
+  object QryConsulta: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from CUSTOMER'
+      'where CUST_NO = :ID')
+    Left = 306
+    Top = 184
+    ParamData = <
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
       end>
   end
 end

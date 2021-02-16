@@ -44,6 +44,7 @@ type
     procedure btnExcluirClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
   private
     { Private declarations }
     procedure atualizar();
@@ -73,6 +74,40 @@ begin
   atualizar();
 end;
 
+procedure TForm1.btnEditarClick(Sender: TObject);
+var
+  jParametro: TJSONObject;
+begin
+
+  jParametro := TJSONObject.Create;
+
+  try
+    jParametro.AddPair('CUST_NO', Trim(edtID.Text));
+    jParametro.AddPair('COSTUMER', Trim(edtCustomer.Text));
+    jParametro.AddPair('CONTACT_FIRST', Trim(edtCONTACT_FIRST.Text));
+    jParametro.AddPair('CONTACT_LAST', Trim(edtCONTACT_LAST.Text));
+    jParametro.AddPair('PHONE_NO', Trim(edtPHONE_NO.Text));
+    jParametro.AddPair('ADDRESS_LINE1', Trim(edtADDRESS_LINE1.Text));
+    jParametro.AddPair('ADDRESS_LINE2', Trim(edtADDRESS_LINE2.Text));
+    jParametro.AddPair('CITY', Trim(edtCITY.Text));
+    jParametro.AddPair('STATE_PROVINCE', Trim(edtSTATE_PROVINCE.Text));
+    jParametro.AddPair('COUNTRY', Trim(edtCOUNTRY.Text));
+    jParametro.AddPair('POSTAL_CODE', Trim(edtPOSTAL_CODE.Text));
+    jParametro.AddPair('ON_HOLD', Trim(edtON_HOLD.Text));
+
+    Dados.bkpExecutarEndPoints.Method := rmPUT;
+    Dados.bkpExecutarEndPoints.ResourceSuffix := edtID.Text;
+    Dados.bkpExecutarEndPoints.AddBody(jParametro);
+    Dados.bkpExecutarEndPoints.Execute;
+  finally
+    jParametro.Free;
+  end;
+
+  atualizar();
+  ShowMessage('Editado com Sucesso!');
+
+end;
+
 procedure TForm1.btnExcluirClick(Sender: TObject);
 begin
 
@@ -81,6 +116,7 @@ begin
   Dados.bkpExecutarEndPoints.Execute;
 
   atualizar();
+  ShowMessage('Deletado com Sucesso!');
 
 end;
 
@@ -114,6 +150,8 @@ begin
   end;
 
   atualizar();
+  ShowMessage('Inserido com sucesso!');
+
 end;
 
 procedure TForm1.FormShow(Sender: TObject);

@@ -24,6 +24,8 @@ type
     vQryDeleteCustumer: TFDQuery;
     vQryDeleteSales: TFDQuery;
     qryInserir: TFDQuery;
+    QryAtualizar: TFDQuery;
+    QryConsulta: TFDQuery;
 
   published
 
@@ -119,7 +121,7 @@ procedure TRestCustumersResource1.Post(const AContext: TEndpointContext;
 begin
 end;
 
-/// inserir
+/// inserir / edita
 procedure TRestCustumersResource1.PutItem(const AContext: TEndpointContext;
   const ARequest: TEndpointRequest; const AResponse: TEndpointResponse);
 var
@@ -160,25 +162,60 @@ begin
   POSTAL_CODE := jParametros.GetValue('POSTAL_CODE').Value;
   ON_HOLD := jParametros.GetValue('ON_HOLD').Value;
 
-  qryInserir.Close;
-  qryInserir.Params[0].AsString := CUST_NO;
-  qryInserir.Params[1].AsString := CUSTOMER;
-  qryInserir.Params[2].AsString := CONTACT_FIRST;
-  qryInserir.Params[3].AsString := CONTACT_LAST;
-  qryInserir.Params[4].AsString := PHONE_NO;
-  qryInserir.Params[5].AsString := ADDRESS_LINE1;
-  qryInserir.Params[6].AsString := ADDRESS_LINE2;
-  qryInserir.Params[7].AsString := CITY;
-  qryInserir.Params[8].AsString := STATE_PROVINCE;
-  qryInserir.Params[9].AsString := COUNTRY;
-  qryInserir.Params[10].AsString := POSTAL_CODE;
-  qryInserir.Params[11].AsString := ON_HOLD;
+  QryConsulta.Params[0].AsString := CUST_NO;
+  QryConsulta.Close;
+  QryConsulta.Open();
 
-  try
-    qryInserir.ExecSQL;
-    AResponse.Body.SetValue(TJSONString.Create('Inserido com sucesso!'), true);
-  except
-    AResponse.Body.SetValue(TJSONString.Create('erro ao inserir'), true);
+  if QryConsulta.IsEmpty then
+  begin
+    // insere
+    qryInserir.Close;
+    qryInserir.Params[0].AsString := CUST_NO;
+    qryInserir.Params[1].AsString := CUSTOMER;
+    qryInserir.Params[2].AsString := CONTACT_FIRST;
+    qryInserir.Params[3].AsString := CONTACT_LAST;
+    qryInserir.Params[4].AsString := PHONE_NO;
+    qryInserir.Params[5].AsString := ADDRESS_LINE1;
+    qryInserir.Params[6].AsString := ADDRESS_LINE2;
+    qryInserir.Params[7].AsString := CITY;
+    qryInserir.Params[8].AsString := STATE_PROVINCE;
+    qryInserir.Params[9].AsString := COUNTRY;
+    qryInserir.Params[10].AsString := POSTAL_CODE;
+    qryInserir.Params[11].AsString := ON_HOLD;
+
+    try
+      qryInserir.ExecSQL;
+      AResponse.Body.SetValue
+        (TJSONString.Create('Inserido com sucesso!'), true);
+    except
+      AResponse.Body.SetValue(TJSONString.Create('erro ao inserir'), true);
+    end;
+
+  end
+  else
+  begin
+    // Edita
+    QryAtualizar.Close;
+    QryAtualizar.Params[0].AsString := CUSTOMER;
+    QryAtualizar.Params[1].AsString := CONTACT_FIRST;
+    QryAtualizar.Params[2].AsString := CONTACT_LAST;
+    QryAtualizar.Params[3].AsString := PHONE_NO;
+    QryAtualizar.Params[4].AsString := ADDRESS_LINE1;
+    QryAtualizar.Params[5].AsString := ADDRESS_LINE2;
+    QryAtualizar.Params[6].AsString := CITY;
+    QryAtualizar.Params[7].AsString := STATE_PROVINCE;
+    QryAtualizar.Params[8].AsString := COUNTRY;
+    QryAtualizar.Params[9].AsString := POSTAL_CODE;
+    QryAtualizar.Params[10].AsString := ON_HOLD;
+    QryAtualizar.Params[11].AsString := CUST_NO;
+
+    try
+      QryAtualizar.ExecSQL;
+      AResponse.Body.SetValue(TJSONString.Create('Editado com sucesso!'), true);
+    except
+      AResponse.Body.SetValue(TJSONString.Create('erro ao editar'), true);
+    end;
+
   end;
 
 end;
